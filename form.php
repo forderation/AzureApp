@@ -86,23 +86,25 @@
       
             if (isset($_POST['submit'])) {
               try {
-                  $name = $_POST['name'];
+                  $name = $_POST['nama'];
                   $email = $_POST['email'];
-                  $job = $_POST['job'];
-                  $date = date("Y-m-d");
+                  $tanggal = date('Y-m-d', strtotime($_POST['tanggal']));
+                  $jk =  $_POST['jenis_kelamin'];
+                  $alamat = $_POST['alamat'];
                   // Insert data
-                  $sql_insert = "INSERT INTO Registration (name, email, job, date) 
-                              VALUES (?,?,?,?)";
+                  $sql_insert = "INSERT INTO Guest (nama, email, jk, alamat, tanggal) 
+                              VALUES (?,?,?,?,?)";
                   $stmt = $conn->prepare($sql_insert);
                   $stmt->bindValue(1, $name);
                   $stmt->bindValue(2, $email);
-                  $stmt->bindValue(3, $job);
-                  $stmt->bindValue(4, $date);
+                  $stmt->bindValue(3, $jk);
+                  $stmt->bindValue(4, $alamat);
+                  $stmt->bindValue(5, $tanggal);
                   $stmt->execute();
               } catch(Exception $e) {
                   echo "Failed: " . $e;
               }
-              echo "<h3>Your're registered!</h3>";
+              echo "<script>alert('Sukses memasukkan data!');</script>";
             }
           ?>
         </article>

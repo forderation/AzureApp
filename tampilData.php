@@ -30,54 +30,11 @@
     <div class="row">
       <div class="col-md-12 articles" id="site-content">
         <article class="posts">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Nama Lengkap</th>
-                <th>Nama Email</th>
-                <th>Alamat</th>
-                <th>Tanggal Datang</th>
-                <th>Jenis Kelamin</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Andi Purnomo</td>
-                <td>andy@umm.ac.id</td>
-                <td>Teknik Informatika</td>
-                <td>
-                  <button type="button" class="btn btn-info">Edit</button>
-                  <button type="button" class="btn btn-success">Detail</button>
-                  <button type="button" class="btn btn-danger">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Bagus Wardana</td>
-                <td>bagus@umm.ac.id</td>
-                <td>Teknik Informatika</td>
-                <td>
-                  <button type="button" class="btn btn-info">Edit</button>
-                  <button type="button" class="btn btn-success">Detail</button>
-                  <button type="button" class="btn btn-danger">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Mabadi'ul Hasan</td>
-                <td>hasan@umm.ac.id</td>
-                <td>Teknik Informatika</td>
-                <td>
-                  <button type="button" class="btn btn-info">Edit</button>
-                  <button type="button" class="btn btn-success">Detail</button>
-                  <button type="button" class="btn btn-danger">Hapus</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
           <?php
-          $host = "<Nama server database Anda>";
-          $user = "<Nama admin database Anda>";
-          $pass = "<Password admin database Anda>";
-          $db = "<Nama database Anda>";
+          $host = "lclocuddb.database.windows.net";
+          $user = "forderation";
+          $pass = "321Aripmuzaki";
+          $db = "LCloudDB";
           try {
             $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -85,21 +42,23 @@
             echo "Failed: " . $e;
           }
           try {
-            $sql_select = "SELECT * FROM Registration";
+            $sql_select = "SELECT * FROM Guest";
             $stmt = $conn->query($sql_select);
             $registrants = $stmt->fetchAll();
             if (count($registrants) > 0) {
               echo "<table class=\"table table-striped\">";
-              echo "<thead><tr><th>Name</th>";
+              echo "<thead><tr><th>Nama</th>";
               echo "<th>Email</th>";
-              echo "<th>Job</th>";
-              echo "<th>Date</th></tr></thead>";
+              echo "<th>Alamat</th>";
+              echo "<th>Jenis Kelamin</th>";
+              echo "<th>Tanggal</th></tr></thead>";
               echo "<tbody>";
               foreach ($registrants as $registrant) {
-                echo "<tr><td>" . $registrant['name'] . "</td>";
+                echo "<tr><td>" . $registrant['nama'] . "</td>";
                 echo "<td>" . $registrant['email'] . "</td>";
-                echo "<td>" . $registrant['job'] . "</td>";
-                echo "<td>" . $registrant['date'] . "</td></tr>";
+                echo "<td>" . $registrant['alamat'] . "</td>";
+                echo "<td>" . $registrant['jk'] . "</td>";
+                echo "<td>" . $registrant['tanggal'] . "</td></tr>";
               }
               echo "</tbody>";
               echo "</table>";
