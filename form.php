@@ -52,7 +52,7 @@
             <div class="form-group form-group-sm">
               <label class="col-sm-2 control-label" for="sm">Alamat</label>
               <div class="col-sm-10">
-                <input class="form-control" rows="5" id="comment" id="alamat" name="alamat">
+                <textarea class="form-control" rows="5" id="comment" id="alamat" name="alamat"></textarea>
               </div>
             </div>
             <div class="form-group form-group-sm">
