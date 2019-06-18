@@ -46,7 +46,7 @@
             <div class="form-group form-group-sm">
               <label class="col-sm-2 control-label" for="sm">Tanggal Datang</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" id="sm" id="tanggal" name="tanggal">
+                <input class="form-control" type="date" id="sm" id="tanggal" name="tanggal">
               </div>
             </div>
             <div class="form-group form-group-sm">
