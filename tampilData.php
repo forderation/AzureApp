@@ -63,7 +63,7 @@
               echo "</tbody>";
               echo "</table>";
             } else {
-              echo "<h3>No one is currently registered.</h3>";
+              echo "<h2>Belum ada data tamu.</h2>";
             }
           } catch (Exception $e) {
             echo "Failed: " . $e;

@@ -86,7 +86,7 @@
       
             if (isset($_POST['submit'])) {
               try {
-                  $name = $_POST['nama'];
+                  $nama = $_POST['nama'];
                   $email = $_POST['email'];
                   $tanggal = date('Y-m-d', strtotime($_POST['tanggal']));
                   $jk =  $_POST['jenis_kelamin'];
@@ -95,7 +95,7 @@
                   $sql_insert = "INSERT INTO Guest (nama, email, jk, alamat, tanggal) 
                               VALUES (?,?,?,?,?)";
                   $stmt = $conn->prepare($sql_insert);
-                  $stmt->bindValue(1, $name);
+                  $stmt->bindValue(1, $nama);
                   $stmt->bindValue(2, $email);
                   $stmt->bindValue(3, $jk);
                   $stmt->bindValue(4, $alamat);
